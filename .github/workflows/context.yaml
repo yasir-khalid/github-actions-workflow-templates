@@ -1,4 +1,4 @@
-name: Issues monitoring notifier
+name: Context/Metadata access
 on: workflow_dispatch
   
 jobs:
