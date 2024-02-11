@@ -1,0 +1,14 @@
+# looks for issues in the repo
+# start workflow, whenever a new issue is created
+# output the event details in shell via echo 
+name: Issues monitoring notifier
+on:
+  issues:
+    types: [opened]
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: New issue created
+        run: echo "New issue created"
