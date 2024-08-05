@@ -12,5 +12,5 @@ jobs:
         run: echo "Github event name - $GITHUB_EVENT_NAME"
       - name: "Print webhook message"
         env:
-          MESSAGE: ${{ github.event.client_payload }}
+          MESSAGE: ${{ github.event.client_payload.author }}
         run: echo "$MESSAGE"
