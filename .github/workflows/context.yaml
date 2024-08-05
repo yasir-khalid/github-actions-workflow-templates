@@ -1,9 +1,0 @@
-name: Context/Metadata access
-on: workflow_dispatch
-  
-jobs:
-  context:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Output meta information i.e. context
-        run: echo "${{ toJSON(github) }}" # the ${{}} syntax is a expression to be evaluated
