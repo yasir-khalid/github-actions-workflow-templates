@@ -17,8 +17,9 @@ jobs:
         env:
           MESSAGE: ${{ github.event.client_payload.message }}
         run: |
-          echo "Webhook payload message ${MESSAGE}"
           echo ${{ github.event.client_payload.message }}
       - name: "Step level trigger via Webhook"
-        if: ${{ github.event.client_payload.trigger }} == 'true'
-        run: echo 'Step-level control via webhooks/conditonals'
+        if: ${{ github.event.client_payload.trigger }} == true
+        run: |
+          echo "Trigger: " ${{github.event.client_payload.trigger}}
+          echo 'Step-level control via webhooks/conditonals'
