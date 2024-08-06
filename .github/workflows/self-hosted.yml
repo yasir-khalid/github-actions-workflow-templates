@@ -13,4 +13,4 @@ jobs:
       - name: "Webhook payload message"
         run: |
           echo "Job ran using github self-hosted runner"
-          ${{ github.event.client_payload.message }}
+          echo ${{ github.event.client_payload.message }}
