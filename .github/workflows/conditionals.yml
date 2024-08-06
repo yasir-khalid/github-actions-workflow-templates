@@ -1,7 +1,7 @@
 name: Conditional workflows triggered by webhooks
 on:
   repository_dispatch:
-    types: [webhook]
+    types: [curl-trigger]
 
 jobs:
   conditional-job-trigger:
@@ -15,9 +15,10 @@ jobs:
     steps:
       - name: "Webhook payload message"
         env:
-          MESSAGE: ${{ github.event.client_payload.author }}
-        run: echo "Webhook payload message ${MESSAGE}"
-      - name: "Print webhook message"
-        env:
-          MESSAGE: ${{ github.event.client_payload.author }}
-        run: echo "$MESSAGE"
+          MESSAGE: ${{ github.event.client_payload.message }}
+        run: |
+          echo "Webhook payload message ${MESSAGE}"
+          echo ${{ github.event.client_payload.message }}
+      - name: "Step level trigger via Webhook"
+        if: ${{ github.event.client_payload.trigger }} == 'true'
+        run: echo 'Step-level control via webhooks/conditonals'

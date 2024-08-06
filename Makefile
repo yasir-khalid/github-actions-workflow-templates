@@ -9,4 +9,4 @@ webhook:
   		-H "Authorization: token $(GITHUB_TOKEN)" \
   		-H "X-GitHub-Api-Version: 2022-11-28" \
   		https://api.github.com/repos/yasir-khalid/github-actions-workflow-templates/dispatches \
-  		-d '{"event_type":"webhook","client_payload":{"unit":false,"integration":true,"author":"Yasir Macbook Air"}}'
+  		-d '{"event_type":"curl-trigger","client_payload":{"trigger":true,"message":"Webhook dispatched from Yasir's Macbook air"}}'
