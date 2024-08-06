@@ -1,7 +1,10 @@
-name: Conditional workflows triggered by webhooks
+name: Webhook triggered conditional and cron workflow
 on:
   repository_dispatch:
     types: [curl-trigger]
+  schedule:
+  - cron: "0 12 * * *" # Runs daily at 12:00:00
+    
 
 jobs:
   conditional-job-trigger:
