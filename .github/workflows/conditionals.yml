@@ -1,0 +1,23 @@
+name: Conditional workflows triggered by webhooks
+on:
+  repository_dispatch:
+    types: [webhook]
+
+jobs:
+  conditional-job-trigger:
+    if: github.repository == 'yasir-khalid/github-actions-workflow-templates'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Verifying conditional statements"
+        run: echo 'Hello World'
+  webhook-conditional-job-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Webhook payload message"
+        env:
+          MESSAGE: ${{ github.event.client_payload.author }}
+        run: echo "Webhook payload message ${MESSAGE}"
+      - name: "Print webhook message"
+        env:
+          MESSAGE: ${{ github.event.client_payload.author }}
+        run: echo "$MESSAGE"
