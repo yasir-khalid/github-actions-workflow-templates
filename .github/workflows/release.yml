@@ -23,8 +23,6 @@ jobs:
                 name: code-drop
                 path: .next/
     download-artifacts-and-release:
-      permissions:
-        contents: write  
       needs: build-project
       name: Download Next.js artifacts and release
       runs-on: ubuntu-latest
@@ -46,3 +44,5 @@ jobs:
           with:
             tag_name: v${{ github.run_number }}.0.0
             release_name: Release v${{ github.run_number }}.0.0
+        - name: Upload assets to the release
+          uses: 
