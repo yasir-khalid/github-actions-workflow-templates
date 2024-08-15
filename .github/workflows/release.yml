@@ -18,6 +18,7 @@ jobs:
                 name: code-drop
                 path: .next/
     download-artifacts-and-release:
+      needs: build-project
       name: Download Next.js artifacts and release
       runs-on: ubuntu-latest
       steps:
