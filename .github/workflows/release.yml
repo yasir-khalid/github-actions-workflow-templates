@@ -18,6 +18,8 @@ jobs:
                 name: code-drop
                 path: .next/
     download-artifacts-and-release:
+      permissions:
+        contents: write  
       needs: build-project
       name: Download Next.js artifacts and release
       runs-on: ubuntu-latest
@@ -36,7 +38,6 @@ jobs:
           uses: actions/create-release@v1
           env:
             GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
-            GITHUB_RUN_ID: ${{ github.run_id }}
           with:
-            tag_name: "v${GITHUB_RUN_ID}.0.0"
-            release_name: Release v${GITHUB_RUN_ID}.0.0
+            tag_name: v${{ github.run_number }}.0.0
+            release_name: Release v${{ github.run_number }}0.0
