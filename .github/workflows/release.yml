@@ -26,6 +26,9 @@ jobs:
           uses: actions/download-artifact@v4
           with:
             name: code-drop
+        - name: Compressing downloaded artifacts
+          run: |
+            zip -r artifacts.zip .
         - name: List out download files (verification)
           run: ls -ltr
         - name: Create Release (zipped code files)
