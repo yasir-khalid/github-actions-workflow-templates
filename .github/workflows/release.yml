@@ -28,4 +28,12 @@ jobs:
             name: code-drop
         - name: List out download files (verification)
           run: ls -ltr
-        
+        - name: Create Release (zipped code files)
+          id: create_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_RUN_ID: ${{ github.run_id }}
+          with:
+            tag_name: "v${GITHUB_RUN_ID}.0.0"
+            release_name: Release v${GITHUB_RUN_ID}.0.0
