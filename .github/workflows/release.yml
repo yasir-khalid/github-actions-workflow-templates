@@ -1,5 +1,5 @@
 name: Build and Release a Next.js app
-on: workflow_dispatch
+on: [workflow_dispatch, push]
 
 jobs:
     build-project:
@@ -16,3 +16,4 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: code-drop
+                path: .next/
