@@ -9,4 +9,3 @@ All workflows are located under `.github/workflows/`
 - Webhook: Shows you how you can use external triggers like `webhooks` or a `POST` request to trigger a workflow. For reference CURL `POST` request, you can see the **Make** target `webhook` located in the `Makefile`
 - self hosted runner: By default all workflows are ran on github-hosted free runners, you can use this template to trigger your workflows or jobs on your own hosted runners. Refer the docs on how to setup your own runner, you can setup a practise runner on your laptop or `Github codespaces` (where I practised it)
 - Build and Release a Next.js app: This workflow shows you how you can checkout your code, build your npm packages, and then store those artifacts to be shared across different jobs. You can also see how you can refer those previously stored/uploaded artifacts in another job, then create a `github release` - and upload those artifacts as part of the release assets. 
-
