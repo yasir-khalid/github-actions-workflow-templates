@@ -45,4 +45,4 @@ jobs:
             GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
           with:
             tag_name: v${{ github.run_number }}.0.0
-            release_name: Release v${{ github.run_number }}0.0
+            release_name: Release v${{ github.run_number }}.0.0
