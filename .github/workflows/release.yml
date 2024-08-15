@@ -13,6 +13,6 @@ jobs:
             - name: Build Next.js project
               run: make run
             - name: Upload build artifacts to registry
-              uses: actions/checkout@v4
+              uses: actions/upload-artifact@v4
               with:
                 name: code-drop
