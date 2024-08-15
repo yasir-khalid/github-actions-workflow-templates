@@ -45,4 +45,12 @@ jobs:
             tag_name: v${{ github.run_number }}.0.0
             release_name: Release v${{ github.run_number }}.0.0
         - name: Upload assets to the release
-          uses: 
+          uses: actions/upload-release-asset@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
+          with:
+            upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+            asset_path: ./artifacts.zip
+            asset_name: artifacts.zip
+            asset_content_type: application/zip
+
