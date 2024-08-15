@@ -1,5 +1,7 @@
-include .env
-export $(shell sed 's/=.*//' .env)
+ifneq (,$(wildcard .env))
+    include .env
+    export $(shell sed 's/=.*//' .env)
+endif
 
 webhook:
 	@echo "Auth token: $(GITHUB_TOKEN)"
@@ -10,3 +12,9 @@ webhook:
   		-H "X-GitHub-Api-Version: 2022-11-28" \
   		"https://api.github.com/repos/${GITHUB_USERNAME}/${WORKFLOW_NAME}/dispatches" \
   		-d '{"event_type":"curl-trigger","client_payload":{"trigger":false,"message":"Webhook dispatched from Yasir Macbook air"}}'
+
+install:
+	@npm install
+
+run:
+	@npm run build
