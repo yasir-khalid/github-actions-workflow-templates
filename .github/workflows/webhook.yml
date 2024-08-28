@@ -6,17 +6,15 @@ on:
 
 jobs:
   read-webhook-payload:
-    name: "Read Webhook payload (Stage 2)"
+    name: "Read Webhook payload"
     runs-on: ubuntu-latest
     steps:
-      - name: "Stage 1 (check payload)"
-        run: echo "Stage 1"
       - name: "Print webhook message"
         env:
-          MESSAGE: ${{ github.event.client_payload.author }}
+          MESSAGE: ${{ github.event.client_payload.message }}
         run: echo "$MESSAGE"
-  stage2-after-webhook:
-    name: "Stage 2"
+  process-webhook-data:
+    name: "Process Webhook data"
     needs: read-webhook-payload
     runs-on: ubuntu-latest
     steps:
@@ -26,5 +24,5 @@ jobs:
     name: "Send Slack Notification"
     runs-on: ubuntu-latest
     steps:
-      - name: "Stage 2"
+      - name: "Slack notification"
         run: echo "placeholder"
